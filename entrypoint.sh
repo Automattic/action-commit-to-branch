@@ -13,16 +13,9 @@ EOF
 
   git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
   git config --global user.name "$GITHUB_ACTOR"
-
-  : ${INPUT_PUSH_BRANCH:=`echo "$GITHUB_REF" | awk -F / '{ print $3 }' `}
 }
 
 git_setup
-
-# debug
-#echo username — $GITHUB_ACTOR, branch — $INPUT_BRANCH, commit message — $INPUT_COMMIT_MESSAGE
-#echo $(cat $HOME/.netrc)
-
 git remote update
 git fetch --all
 
