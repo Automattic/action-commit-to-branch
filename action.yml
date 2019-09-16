@@ -1,0 +1,14 @@
+name: 'Commit and push to branch'
+description: 'Commits and pushes the result of the action to a remote branch.'
+author: '@automattic/jetpack'
+inputs:
+  branch:
+    description: 'Branch ref to push the changes to'
+    required: true
+  commit_message:
+    description: 'Write the commit message'
+    required: false
+    default: 'Automated commit from action'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
