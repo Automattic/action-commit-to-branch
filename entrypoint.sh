@@ -11,6 +11,7 @@ git_setup() {
 EOF
   chmod 600 $HOME/.netrc
 
+  git config --global core.excludesfile ~/.gitignore_global # gitignore
   git config --global user.email "$GITHUB_ACTOR@users.noreply.github.com"
   git config --global user.name "$GITHUB_ACTOR"
 }
@@ -25,7 +26,6 @@ if [[ $( git branch -r | grep "$INPUT_BRANCH" ) ]]; then
 else
    git checkout -b "${INPUT_BRANCH}"
 fi
-git config --global core.excludesfile ~/.gitignore_global # gitignore
 git add .
 git commit -m "${INPUT_COMMIT_MESSAGE}"
 git push --set-upstream origin "${INPUT_BRANCH}"
