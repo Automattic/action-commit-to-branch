@@ -25,7 +25,7 @@ if [[ $( git branch -r | grep "$INPUT_BRANCH" ) ]]; then
 else
    git checkout -b "${INPUT_BRANCH}"
 fi
-
+git rm -r --cached . # Clear in case .gitignore has changed
 git add .
 git commit -m "${INPUT_COMMIT_MESSAGE}"
 git push --set-upstream origin "${INPUT_BRANCH}"
