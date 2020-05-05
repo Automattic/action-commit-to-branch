@@ -24,6 +24,7 @@ git stash
 # Will create branch if it does not exist
 if [[ $( git branch -r | grep "$INPUT_BRANCH" ) ]]; then
    git checkout "${INPUT_BRANCH}"
+   git pull
 else
    git checkout -b "${INPUT_BRANCH}"
 fi
