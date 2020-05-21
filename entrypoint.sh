@@ -29,6 +29,12 @@ else
 fi
 
 git stash pop
+
+if [ -f ".deployignore" ]; then
+   rm .gitignore
+   mv .deployignore .gitignore
+fi
+git rm -r --cached .
 git add .
 git commit -m "${INPUT_COMMIT_MESSAGE}"
 git push --set-upstream origin "${INPUT_BRANCH}"
