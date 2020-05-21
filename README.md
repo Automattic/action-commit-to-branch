@@ -16,10 +16,13 @@ Custom commit message. **default** "Automated commit from action""
 
 ## Example usage
 ```
+- name: Set branch env var
+  run: echo ::set-env name=BUILT_BRANCH::${GITHUB_REF##*/}-built
+  
 - name: Push to built branch
   uses: Automattic/action-commit-to-branch@master
   with:
-    branch: 'master-built'
+    branch: ${{ env.BUILT_BRANCH }}
     commit_message: 'Build master'
   env:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Required
