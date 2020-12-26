@@ -9,6 +9,10 @@ inputs:
     description: 'Write the commit message'
     required: false
     default: 'Automated commit from action'
+  add:
+    description: 'The arguments for the `git add` command'
+    required: false
+    default: '.'
 runs:
   using: 'docker'
   image: 'Dockerfile'

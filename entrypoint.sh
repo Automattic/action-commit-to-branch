@@ -29,6 +29,6 @@ else
 fi
 
 git stash pop
-git add .
+git add "${INPUT_ADD}"
 git commit -m "${INPUT_COMMIT_MESSAGE}"
 git push --set-upstream origin "${INPUT_BRANCH}"
